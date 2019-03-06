@@ -28,5 +28,17 @@ namespace WeeklyHoursXlReportBuilder
       return data;
     }
 
-  }
+    public List<Worker> GetReportDataById(IList<int> ids)
+    {
+        List<Worker> data = new List<Worker>();
+        using (var repo = new DailyReportRepository())
+        {
+            data = repo.GetHoursReport(ids);
+        }
+        return data;
+    }
+
+
+
+    }
 }
